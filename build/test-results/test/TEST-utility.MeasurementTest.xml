@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="utility.MeasurementTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-03-16T14:31:04" hostname="DESKTOP-AB0UK2U" time="0.031">
+<testsuite name="utility.MeasurementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-16T14:48:38" hostname="DESKTOP-AB0UK2U" time="0.02">
   <properties/>
-  <testcase name="testEqualsIsFalseFor2CentimeterEquals1Centimeter()" classname="utility.MeasurementTest" time="0.02"/>
-  <testcase name="testThrowsExceptionForZeroValuedDimension()" classname="utility.MeasurementTest" time="0.003"/>
-  <testcase name="testEqualsIsTrueFor1CentimeterEquals1Centimeter()" classname="utility.MeasurementTest" time="0.001"/>
-  <testcase name="testThrowsExceptionForNegativeValuedDimension()" classname="utility.MeasurementTest" time="0.001"/>
-  <testcase name="testEqualsIsTrueForSameMeasurementInstance()" classname="utility.MeasurementTest" time="0.001"/>
-  <testcase name="testEqualsIsTrueFor100CentimeterEquals1Meter()" classname="utility.MeasurementTest" time="0.0"/>
-  <testcase name="testEqualsIsFalseForNonMeasurementInstance()" classname="utility.MeasurementTest" time="0.001"/>
-  <testcase name="testEqualsIsTrueFor1MeterEquals100Centimeter()" classname="utility.MeasurementTest" time="0.0"/>
+  <testcase name="testEqualsIsTrueForOneTenthKilometerEquals100Centimeter()" classname="utility.MeasurementTest" time="0.02"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

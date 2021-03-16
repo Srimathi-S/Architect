@@ -2,7 +2,8 @@ package utility;
 
 public enum Unit {
     Centimeter("centimeter"),
-    Meter("meter");
+    Meter("meter"),
+    Kilometer("kilometer");
 
     private String name;
 

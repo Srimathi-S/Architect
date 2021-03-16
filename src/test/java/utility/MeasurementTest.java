@@ -33,30 +33,6 @@ public class MeasurementTest {
     }
 
     @Test
-    public void testEqualsIsTrueFor1MeterEquals100Centimeter() throws InvalidMeasurementException {
-        double dimensionInCentimeter = 100;
-        double dimensionInMeter = 1;
-        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
-        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
-
-        boolean actual = measurementInCentimeter.equals(measurementInMeter);
-
-        assertTrue(actual);
-    }
-
-    @Test
-    public void testEqualsIsTrueFor100CentimeterEquals1Meter() throws InvalidMeasurementException {
-        double dimensionInCentimeter = 100;
-        double dimensionInMeter = 1;
-        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
-        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
-
-        boolean actual = measurementInMeter.equals(measurementInCentimeter);
-
-        assertTrue(actual);
-    }
-
-    @Test
     public void testEqualsIsFalseForNonMeasurementInstance() throws InvalidMeasurementException {
         double dimension = 1;
         Measurement firstMeasurement = new Measurement(dimension, Unit.Centimeter);
@@ -89,6 +65,54 @@ public class MeasurementTest {
         double dimension = 0;
 
         assertThrows(InvalidMeasurementException.class, () -> new Measurement(dimension, Unit.Centimeter));
+    }
+
+    @Test
+    public void testEqualsIsTrueFor1MeterEquals100Centimeter() throws InvalidMeasurementException {
+        double dimensionInCentimeter = 100;
+        double dimensionInMeter = 1;
+        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
+        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
+
+        boolean actual = measurementInCentimeter.equals(measurementInMeter);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testEqualsIsTrueFor100CentimeterEquals1Meter() throws InvalidMeasurementException {
+        double dimensionInCentimeter = 100;
+        double dimensionInMeter = 1;
+        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
+        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
+
+        boolean actual = measurementInMeter.equals(measurementInCentimeter);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testEqualsIsTrueFor100CentimeterEqualsOneTenthKilometer() throws InvalidMeasurementException {
+        double dimensionInCentimeter = 100;
+        double dimensionInKilometer = 0.1;
+        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
+        Measurement measurementInKilometer = new Measurement(dimensionInKilometer, Unit.Kilometer);
+
+        boolean actual = measurementInCentimeter.equals(measurementInKilometer);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testEqualsIsTrueForOneTenthKilometerEquals100Centimeter() throws InvalidMeasurementException {
+        double dimensionInCentimeter = 100;
+        double dimensionInKilometer = 0.1;
+        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
+        Measurement measurementInKilometer = new Measurement(dimensionInKilometer, Unit.Kilometer);
+
+        boolean actual = measurementInKilometer.equals(measurementInCentimeter);
+
+        assertTrue(actual);
     }
 
 

@@ -24,7 +24,9 @@ public class Measurement {
 
     private double getDimensionInMeter() {
         if (this.unit.getName().equalsIgnoreCase("centimeter"))
-            return this.dimension /100;
+            return this.dimension / 100;
+        else if (this.unit.getName().equalsIgnoreCase("kilometer"))
+            return this.dimension * 10;
         return this.dimension;
     }
 
