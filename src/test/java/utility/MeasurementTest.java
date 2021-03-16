@@ -11,7 +11,7 @@ public class MeasurementTest {
 
     @Test
     public void testEqualsIsTrueIfDimensionsAreEqual() throws InvalidMeasurementException {
-        int dimension = 2;
+        int dimension = 1;
         Measurement firstMeasurement = new Measurement(dimension, Unit.Centimeter);
         Measurement secondMeasurement = new Measurement(dimension, Unit.Centimeter);
 
@@ -23,7 +23,7 @@ public class MeasurementTest {
     @Test
     public void testEqualsIsFalseIfDimensionsAreNotEqual() throws InvalidMeasurementException {
         int firstDimension = 2;
-        int secondDimension =1;
+        int secondDimension = 1;
         Measurement firstMeasurement = new Measurement(firstDimension, Unit.Centimeter);
         Measurement secondMeasurement = new Measurement(secondDimension, Unit.Centimeter);
 
@@ -33,17 +33,38 @@ public class MeasurementTest {
     }
 
     @Test
-    public void testThrowsExceptionForNegativeValuedDimension(){
-        int dimension = -1;
+    public void testEqualsIsFalseForNonMeasurementInstance() throws InvalidMeasurementException {
+        int dimension = 1;
+        Measurement firstMeasurement = new Measurement(dimension, Unit.Centimeter);
+        Integer secondMeasurement = 1;
 
-        assertThrows(InvalidMeasurementException.class , () -> new Measurement(dimension, Unit.Centimeter));
+        boolean actual = firstMeasurement.equals(secondMeasurement);
+
+        assertFalse(actual);
     }
 
     @Test
-    public void testThrowsExceptionForZeroValuedDimension(){
+    public void testEqualsIsTrueForSameMeasurementInstance() throws InvalidMeasurementException {
+        int dimension = 1;
+        Measurement measurement = new Measurement(dimension, Unit.Centimeter);
+
+        boolean actual = measurement.equals(measurement);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testThrowsExceptionForNegativeValuedDimension() {
+        int dimension = -1;
+
+        assertThrows(InvalidMeasurementException.class, () -> new Measurement(dimension, Unit.Centimeter));
+    }
+
+    @Test
+    public void testThrowsExceptionForZeroValuedDimension() {
         int dimension = 0;
 
-        assertThrows(InvalidMeasurementException.class , () -> new Measurement(dimension, Unit.Centimeter));
+        assertThrows(InvalidMeasurementException.class, () -> new Measurement(dimension, Unit.Centimeter));
     }
 
 

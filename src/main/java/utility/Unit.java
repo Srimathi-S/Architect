@@ -5,11 +5,8 @@ public enum Unit {
 
     private String name;
 
-    private Unit(String name){
-        this.name= name;
+    private Unit(String name) {
+        this.name = name;
     }
 
-    public String getUnitName(){
-        return name;
-    }
 }
