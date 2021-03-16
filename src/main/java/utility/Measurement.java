@@ -2,10 +2,10 @@ package utility;
 
 public class Measurement {
 
-    private final int dimension;
+    private final double dimension;
     private final Unit unit;
 
-    public Measurement(int dimension, Unit unit) throws InvalidMeasurementException {
+    public Measurement(double dimension, Unit unit) throws InvalidMeasurementException {
         if (dimension <= 0)
             throw new InvalidMeasurementException();
         this.dimension = dimension;
@@ -18,7 +18,15 @@ public class Measurement {
         if (!(object instanceof Measurement)) return false;
 
         Measurement measurement = (Measurement) object;
-        return dimension == measurement.dimension && unit == measurement.unit;
+        return this.getDimensionInMeter() == measurement.getDimensionInMeter();
+
     }
+
+    private double getDimensionInMeter() {
+        if (this.unit.getName().equalsIgnoreCase("centimeter"))
+            return this.dimension /100;
+        return this.dimension;
+    }
+
 
 }

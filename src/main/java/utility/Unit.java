@@ -1,7 +1,8 @@
 package utility;
 
 public enum Unit {
-    Centimeter("centimeter");
+    Centimeter("centimeter"),
+    Meter("meter");
 
     private String name;
 
@@ -9,4 +10,7 @@ public enum Unit {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
 }
