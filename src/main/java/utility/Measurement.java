@@ -18,17 +18,13 @@ public class Measurement {
         if (!(object instanceof Measurement)) return false;
 
         Measurement measurement = (Measurement) object;
-        return this.getDimensionInMeter() == measurement.getDimensionInMeter();
-
+        return this.unit.getDimensionInMeter(dimension) == measurement.unit.getDimensionInMeter(measurement.dimension);
     }
 
-    private double getDimensionInMeter() {
-        if (this.unit.getName().equalsIgnoreCase("centimeter"))
-            return this.dimension / 100;
-        else if (this.unit.getName().equalsIgnoreCase("kilometer"))
-            return this.dimension * 10;
-        return this.dimension;
+    public Measurement add(Measurement measurement, Unit unit) throws InvalidMeasurementException {
+        double sum = this.unit.getDimensionInMeter(dimension) + measurement.unit.getDimensionInMeter(measurement.dimension);
+        double sumInSpecifiedUnit = unit.givenDimensionInMeterConvertToSpecificUnit(sum);
+
+        return new Measurement(sumInSpecifiedUnit, unit);
     }
-
-
 }

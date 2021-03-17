@@ -5,7 +5,7 @@ public enum Unit {
     Meter("meter"),
     Kilometer("kilometer");
 
-    private String name;
+    private final String name;
 
     private Unit(String name) {
         this.name = name;
@@ -13,5 +13,21 @@ public enum Unit {
 
     public String getName() {
         return name;
+    }
+
+    public double givenDimensionInMeterConvertToSpecificUnit(double dimensionValue) {
+        if (this.name.equalsIgnoreCase("centimeter"))
+            return dimensionValue * 100;
+        else if (this.name.equalsIgnoreCase("kilometer"))
+            return dimensionValue / 1000;
+        return dimensionValue;
+    }
+
+    public double getDimensionInMeter(double dimensionValue) {
+        if (this.name.equalsIgnoreCase("centimeter"))
+            return dimensionValue / 100;
+        else if (this.name.equalsIgnoreCase("kilometer"))
+            return dimensionValue * 1000;
+        return dimensionValue;
     }
 }
