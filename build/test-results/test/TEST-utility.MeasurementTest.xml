@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="utility.MeasurementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-17T04:40:05" hostname="DESKTOP-AB0UK2U" time="0.071">
+<testsuite name="utility.MeasurementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-17T06:35:03" hostname="DESKTOP-AB0UK2U" time="0.024">
   <properties/>
-  <testcase name="testAddIs2KilometerFor100000CentimeterAnd1000Meter()" classname="utility.MeasurementTest" time="0.071"/>
-  <system-out><![CDATA[sum2.0
-]]></system-out>
+  <testcase name="testSubtractThrowsExceptionForRemoving1MeterFrom1Meter()" classname="utility.MeasurementTest" time="0.024"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

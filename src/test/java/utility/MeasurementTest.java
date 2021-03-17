@@ -152,5 +152,49 @@ public class MeasurementTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testSubtractIsHalfMeterForRemoving50CentimeterFrom1Meter() throws InvalidMeasurementException {
+        double dimensionInCentimeter = 50;
+        double dimensionInMeter = 1;
+        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
+        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
+        Measurement expected = new Measurement(0.5, Unit.Meter);
+
+        Measurement actual = measurementInMeter.subtract(measurementInCentimeter, Unit.Meter);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSubtractIs1900CentimeterForRemoving1MeterFrom2000Centimeter() throws InvalidMeasurementException {
+        double dimensionInCentimeter = 2000;
+        double dimensionInMeter = 1;
+        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
+        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
+        Measurement expected = new Measurement(1900, Unit.Centimeter);
+
+        Measurement actual = measurementInCentimeter.subtract(measurementInMeter, Unit.Centimeter);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSubtractThrowsExceptionForRemoving1MeterFrom50Centimeter() throws InvalidMeasurementException {
+        double dimensionInCentimeter = 50;
+        double dimensionInMeter = 1;
+        Measurement measurementInCentimeter = new Measurement(dimensionInCentimeter, Unit.Centimeter);
+        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
+
+        assertThrows(IllegalArgumentException.class, () -> measurementInCentimeter.subtract(measurementInMeter, Unit.Meter));
+    }
+
+    @Test
+    public void testSubtractThrowsExceptionForRemoving1MeterFrom1Meter() throws InvalidMeasurementException {
+        double dimensionInMeter = 1;
+        Measurement measurementInMeter = new Measurement(dimensionInMeter, Unit.Meter);
+
+        assertThrows(IllegalArgumentException.class, () -> measurementInMeter.subtract(measurementInMeter, Unit.Meter));
+    }
+
 
 }
