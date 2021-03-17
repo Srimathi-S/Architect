@@ -23,7 +23,7 @@ public enum Unit {
         return dimensionValue;
     }
 
-    public double getDimensionInMeter(double dimensionValue) {
+    public double dimensionInMeter(double dimensionValue) {
         if (this.name.equalsIgnoreCase("centimeter"))
             return dimensionValue / 100;
         else if (this.name.equalsIgnoreCase("kilometer"))
