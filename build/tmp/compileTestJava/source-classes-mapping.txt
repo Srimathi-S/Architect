@@ -1,2 +1,4 @@
-utility/MeasurementTest.java
- utility.MeasurementTest
+utility/DistanceMetricsTest.java
+ utility.DistanceMetricsTest
+utility/WeightMetricsTest.java
+ utility.WeightMetricsTest

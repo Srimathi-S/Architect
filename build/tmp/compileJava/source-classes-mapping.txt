@@ -1,6 +1,10 @@
 utility/InvalidMeasurementException.java
  utility.InvalidMeasurementException
+utility/DistanceMetrics.java
+ utility.DistanceMetrics
 utility/Unit.java
  utility.Unit
-utility/Measurement.java
- utility.Measurement
+ utility.Unit$UnitOfDistance
+ utility.Unit$UnitOfWeight
+utility/WeightMetrics.java
+ utility.WeightMetrics

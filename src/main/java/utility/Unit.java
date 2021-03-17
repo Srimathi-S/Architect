@@ -1,33 +1,34 @@
 package utility;
 
-public enum Unit {
-    Centimeter("centimeter"),
-    Meter("meter"),
-    Kilometer("kilometer");
+public class Unit {
+    public enum UnitOfDistance {
+        Centimeter("centimeter"),
+        Meter("meter"),
+        Kilometer("kilometer");
 
-    private final String name;
+        private final String unitType;
 
-    private Unit(String name) {
-        this.name = name;
+        UnitOfDistance(String unitType) {
+            this.unitType = unitType;
+        }
+
+        public String getUnitType() {
+            return unitType;
+        }
     }
 
-    public String getName() {
-        return name;
-    }
+    public enum UnitOfWeight {
+        Gram("gram"),
+        Kilogram("kilogram");
 
-    public double givenDimensionInMeterConvertToSpecificUnit(double dimensionValue) {
-        if (this.name.equalsIgnoreCase("centimeter"))
-            return dimensionValue * 100;
-        else if (this.name.equalsIgnoreCase("kilometer"))
-            return dimensionValue / 1000;
-        return dimensionValue;
-    }
+        private final String unitType;
 
-    public double dimensionInMeter(double dimensionValue) {
-        if (this.name.equalsIgnoreCase("centimeter"))
-            return dimensionValue / 100;
-        else if (this.name.equalsIgnoreCase("kilometer"))
-            return dimensionValue * 1000;
-        return dimensionValue;
+        UnitOfWeight(String unitType) {
+            this.unitType=unitType;
+        }
+
+        public String getUnitType() {
+            return this.unitType;
+        }
     }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="utility.WeightMetricsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-17T14:47:53" hostname="LAPTOP-538TC8K1" time="0.083">
+  <properties/>
+  <testcase name="testThrowsExceptionForZeroValuedDimension()" classname="utility.WeightMetricsTest" time="0.083"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
