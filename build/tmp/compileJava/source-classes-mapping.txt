@@ -1,7 +1,7 @@
-utility/InvalidMeasurementException.java
- utility.InvalidMeasurementException
 utility/DistanceMetrics.java
  utility.DistanceMetrics
+utility/InvalidMeasurementException.java
+ utility.InvalidMeasurementException
 utility/Unit.java
  utility.Unit
  utility.Unit$UnitOfDistance

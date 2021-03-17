@@ -27,4 +27,17 @@ public class WeightMetrics {
         return dimension;
     }
 
+    public WeightMetrics add(WeightMetrics weightMetrics) throws InvalidMeasurementException {
+        double sum=getDimensionInGram()+ weightMetrics.getDimensionInGram();
+        return new WeightMetrics(sum,Unit.UnitOfWeight.Gram);
+    }
+
+    public WeightMetrics subtract(WeightMetrics weightMetrics) {
+        double difference=getDimensionInGram()-weightMetrics.getDimensionInGram();
+        try {
+            return new WeightMetrics(difference,Unit.UnitOfWeight.Gram);
+        } catch (InvalidMeasurementException e) {
+            throw new IllegalArgumentException("Cannot Subtract larger dimension from smaller dimension");
+        }
+    }
 }
