@@ -43,6 +43,17 @@ public class WeightMetricsTest {
     }
 
     @Test
+    public void testEqualsIsFalseForNonWeightMetricsInstance() throws InvalidMeasurementException {
+        double dimension = 1;
+        WeightMetrics firstDistanceMetrics = new WeightMetrics(dimension, Unit.UnitOfWeight.Gram);
+        Integer distance= 1;
+
+        boolean actual = firstDistanceMetrics.equals(distance);
+
+        assertFalse(actual);
+    }
+
+    @Test
     public void testAddIs2KilogramFor1000GramAnd1000Gram() throws InvalidMeasurementException {
         double dimensionInGram = 1000;
         WeightMetrics firstWeightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);

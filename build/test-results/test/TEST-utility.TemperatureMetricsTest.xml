@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="utility.TemperatureMetricsTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-03-18T15:00:00" hostname="LAPTOP-538TC8K1" time="0.091">
+  <properties/>
+  <testcase name="testIsFalseFor0KelvinEqualsNegative274Celsius()" classname="utility.TemperatureMetricsTest" time="0.069"/>
+  <testcase name="testIsTrueFor0KelvinEqualsNegative273Celsius()" classname="utility.TemperatureMetricsTest" time="0.009"/>
+  <testcase name="testIsFalseForNonTemperatureMeasurementInstance()" classname="utility.TemperatureMetricsTest" time="0.002"/>
+  <testcase name="testIsTrueFor0CelsiusEquals32Fahrenheit()" classname="utility.TemperatureMetricsTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

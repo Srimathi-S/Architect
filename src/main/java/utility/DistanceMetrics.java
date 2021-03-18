@@ -6,8 +6,7 @@ public class DistanceMetrics{
     private final Unit.UnitOfDistance unitOfDistance;
 
     public DistanceMetrics(double dimension, Unit.UnitOfDistance unitOfDistance) throws InvalidMeasurementException {
-        if (dimension <= 0)
-            throw new InvalidMeasurementException();
+        if(dimension<=0)throw new InvalidMeasurementException();
         this.dimension = dimension;
         this.unitOfDistance = unitOfDistance;
     }
