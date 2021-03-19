@@ -1,5 +1,7 @@
 package utility;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -12,16 +14,16 @@ public class TemperatureMetricsTest {
         TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
         TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInFahrenheit, Unit.UnitOfTemperature.Fahrenheit);
 
-        assertEquals(temperatureMetricsInCelsius,temperatureMetricsInFahrenheit);
+        assertEquals(temperatureMetricsInCelsius, temperatureMetricsInFahrenheit);
     }
 
     @Test
     public void testIsFalseForNonTemperatureMeasurementInstance() {
         double temperatureInCelsius = 1;
         TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
-        Integer distance= 1;
+        Integer distance = 1;
 
-        assertNotEquals(temperatureMetricsInCelsius,distance);
+        assertNotEquals(temperatureMetricsInCelsius, distance);
     }
 
     @Test
@@ -31,7 +33,7 @@ public class TemperatureMetricsTest {
         TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
         TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInKelvin, Unit.UnitOfTemperature.Kelvin);
 
-        assertNotEquals(temperatureMetricsInCelsius,temperatureMetricsInFahrenheit);
+        assertNotEquals(temperatureMetricsInCelsius, temperatureMetricsInFahrenheit);
     }
 
     @Test
@@ -41,6 +43,6 @@ public class TemperatureMetricsTest {
         TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
         TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInKelvin, Unit.UnitOfTemperature.Kelvin);
 
-        assertEquals(temperatureMetricsInCelsius,temperatureMetricsInFahrenheit);
+        assertEquals(temperatureMetricsInCelsius, temperatureMetricsInFahrenheit);
     }
 }

@@ -26,7 +26,7 @@ public class Unit {
         private final String unitType;
 
         UnitOfWeight(String unitType) {
-            this.unitType=unitType;
+            this.unitType = unitType;
         }
 
         public String getUnitType() {
@@ -42,7 +42,7 @@ public class Unit {
         private final String unitType;
 
         UnitOfTemperature(String unitType) {
-            this.unitType=unitType;
+            this.unitType = unitType;
         }
 
         public String getUnitType() {

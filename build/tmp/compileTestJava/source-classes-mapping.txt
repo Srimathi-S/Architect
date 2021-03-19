@@ -1,6 +1,6 @@
 utility/DistanceMetricsTest.java
  utility.DistanceMetricsTest
-utility/WeightMetricsTest.java
- utility.WeightMetricsTest
 utility/TemperatureMetricsTest.java
  utility.TemperatureMetricsTest
+utility/WeightMetricsTest.java
+ utility.WeightMetricsTest

@@ -1,6 +1,5 @@
 package utility;
 
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,7 +33,7 @@ public class DistanceMetricsTest {
     public void testEqualsIsFalseForNonMeasurementInstance() throws InvalidMeasurementException {
         double dimension = 1;
         DistanceMetrics firstDistanceMetrics = new DistanceMetrics(dimension, Unit.UnitOfDistance.Centimeter);
-        Integer distance= 1;
+        Integer distance = 1;
 
         boolean actual = firstDistanceMetrics.equals(distance);
 

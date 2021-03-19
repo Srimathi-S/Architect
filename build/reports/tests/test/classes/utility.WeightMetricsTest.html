@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - TemperatureMetricsTest</title>
+<title>Test results - WeightMetricsTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>TemperatureMetricsTest</h1>
+<h1>WeightMetricsTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/utility.html">utility</a> &gt; TemperatureMetricsTest</div>
+<a href="../packages/utility.html">utility</a> &gt; WeightMetricsTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">4</div>
+<div class="counter">10</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.013s</div>
+<div class="counter">0.018s</div>
 <p>duration</p>
 </div>
 </td>
@@ -75,23 +75,53 @@
 </tr>
 </thead>
 <tr>
-<td class="success">testIsFalseFor0KelvinEqualsNegative274Celsius()</td>
-<td class="success">0.008s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testIsFalseForNonTemperatureMeasurementInstance()</td>
-<td class="success">0.002s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testIsTrueFor0CelsiusEquals32Fahrenheit()</td>
-<td class="success">0.002s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testIsTrueFor0KelvinEqualsNegative273Celsius()</td>
+<td class="success">testAddIs1010GramFor10GramAnd1Kilogram()</td>
 <td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAddIs2KilogramFor1000GramAnd1000Gram()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEqualsIsFalseForNonWeightMetricsInstance()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEqualsIsTrueFor100GramEqualsOneTenthOfKilogram()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEqualsIsTrueFor1GramEquals1Gram()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSubtractIs1KilogramForDifferenceOf500GramFromOneAndHalfKiloGram()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSubtractIs2KilogramForDifferenceOf1000GramFrom3000Gram()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSubtractThrowsExceptionForDifferenceOfOneAndHalfKiloGramFrom500Gram()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testThrowsExceptionForNegativeValuedDimension()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testThrowsExceptionForZeroValuedDimension()</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 </table>

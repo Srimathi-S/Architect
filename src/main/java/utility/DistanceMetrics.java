@@ -1,22 +1,22 @@
 package utility;
 
-public class DistanceMetrics{
+public class DistanceMetrics {
 
     private final double dimension;
     private final Unit.UnitOfDistance unitOfDistance;
 
     public DistanceMetrics(double dimension, Unit.UnitOfDistance unitOfDistance) throws InvalidMeasurementException {
-        if(dimension<=0)throw new InvalidMeasurementException();
+        if (dimension <= 0) throw new InvalidMeasurementException();
         this.dimension = dimension;
         this.unitOfDistance = unitOfDistance;
     }
 
-    public double dimensionInMeter() {
+    public DistanceMetrics dimensionInMeter() throws InvalidMeasurementException {
         if (this.unitOfDistance.getUnitType().equalsIgnoreCase("centimeter"))
-            return dimension / 100;
+            return new DistanceMetrics(dimension / 100, Unit.UnitOfDistance.Meter);
         else if (this.unitOfDistance.getUnitType().equalsIgnoreCase("kilometer"))
-            return dimension * 1000;
-        return dimension;
+            return new DistanceMetrics(dimension * 1000, Unit.UnitOfDistance.Meter);
+        return new DistanceMetrics(dimension, Unit.UnitOfDistance.Meter);
     }
 
     @Override
@@ -25,19 +25,22 @@ public class DistanceMetrics{
         if (!(object instanceof DistanceMetrics)) return false;
 
         DistanceMetrics distanceMetrics = (DistanceMetrics) object;
-        return dimensionInMeter() == distanceMetrics.dimensionInMeter();
+        try {
+            return dimensionInMeter().dimension == distanceMetrics.dimensionInMeter().dimension;
+        } catch (InvalidMeasurementException e) {
+            return false;
+        }
     }
 
     public DistanceMetrics add(DistanceMetrics distanceMetrics) throws InvalidMeasurementException {
-        double sum = dimensionInMeter() + distanceMetrics.dimensionInMeter();
+        double sum = dimensionInMeter().dimension + distanceMetrics.dimensionInMeter().dimension;
         return new DistanceMetrics(sum, Unit.UnitOfDistance.Meter);
     }
 
 
     public DistanceMetrics subtract(DistanceMetrics distanceMetrics) {
-        double difference = dimensionInMeter() - distanceMetrics.dimensionInMeter();
-
         try {
+            double difference = dimensionInMeter().dimension - distanceMetrics.dimensionInMeter().dimension;
             return new DistanceMetrics(difference, Unit.UnitOfDistance.Meter);
         } catch (InvalidMeasurementException e) {
             throw new IllegalArgumentException("Cannot Subtract larger dimension from smaller dimension");

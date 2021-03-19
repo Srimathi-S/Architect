@@ -39,14 +39,14 @@ public class WeightMetricsTest {
     public void testThrowsExceptionForZeroValuedDimension() {
         double dimension = 0;
 
-        assertThrows(InvalidMeasurementException.class, () -> new  WeightMetrics(dimension, Unit.UnitOfWeight.Gram));
+        assertThrows(InvalidMeasurementException.class, () -> new WeightMetrics(dimension, Unit.UnitOfWeight.Gram));
     }
 
     @Test
     public void testEqualsIsFalseForNonWeightMetricsInstance() throws InvalidMeasurementException {
         double dimension = 1;
         WeightMetrics firstDistanceMetrics = new WeightMetrics(dimension, Unit.UnitOfWeight.Gram);
-        Integer distance= 1;
+        Integer distance = 1;
 
         boolean actual = firstDistanceMetrics.equals(distance);
 
@@ -97,7 +97,7 @@ public class WeightMetricsTest {
         double dimensionInKilogram = 1.5;
         WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);
         WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, Unit.UnitOfWeight.Kilogram);
-        WeightMetrics expected = new WeightMetrics(1 ,Unit.UnitOfWeight.Kilogram);
+        WeightMetrics expected = new WeightMetrics(1, Unit.UnitOfWeight.Kilogram);
 
         WeightMetrics actual = weightMetricsInKilogram.subtract(weightMetricsInGram);
 
@@ -110,8 +110,8 @@ public class WeightMetricsTest {
         double dimensionInKilogram = 1.5;
         WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);
         WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, Unit.UnitOfWeight.Kilogram);
-        WeightMetrics expected = new WeightMetrics(1 ,Unit.UnitOfWeight.Kilogram);
+        WeightMetrics expected = new WeightMetrics(1, Unit.UnitOfWeight.Kilogram);
 
-        assertThrows(IllegalArgumentException.class, ()->weightMetricsInGram.subtract(weightMetricsInKilogram));
+        assertThrows(IllegalArgumentException.class, () -> weightMetricsInGram.subtract(weightMetricsInKilogram));
     }
 }
