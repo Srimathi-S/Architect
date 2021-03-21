@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="utility.WeightMetricsTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2021-03-21T06:47:20" hostname="LAPTOP-538TC8K1" time="0.041">
+<testsuite name="utility.WeightMetricsTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2021-03-21T12:20:05" hostname="LAPTOP-538TC8K1" time="0.055">
   <properties/>
-  <testcase name="testIsTrueFor1GramEquals1Gram()" classname="utility.WeightMetricsTest" time="0.004"/>
-  <testcase name="testThrowsExceptionForZeroValuedDimension()" classname="utility.WeightMetricsTest" time="0.007"/>
+  <testcase name="testIsTrueFor1GramEquals1Gram()" classname="utility.WeightMetricsTest" time="0.01"/>
+  <testcase name="testThrowsExceptionForZeroValuedDimension()" classname="utility.WeightMetricsTest" time="0.002"/>
   <testcase name="testIsFalseFor1GramEquals1Meter()" classname="utility.WeightMetricsTest" time="0.001"/>
   <testcase name="testIsFalseForNonWeightMetricsInstance()" classname="utility.WeightMetricsTest" time="0.001"/>
-  <testcase name="testThrowsExceptionForNegativeValuedDimension()" classname="utility.WeightMetricsTest" time="0.001"/>
+  <testcase name="testThrowsExceptionForNegativeValuedDimension()" classname="utility.WeightMetricsTest" time="0.002"/>
   <testcase name="testAddIs1010GramFor10GramAnd1Kilogram()" classname="utility.WeightMetricsTest" time="0.001"/>
-  <testcase name="testAddThrowsExceptionFor1GramAnd1Meter()" classname="utility.WeightMetricsTest" time="0.002"/>
-  <testcase name="testIsTrueFor100GramEqualsOneTenthOfKilogram()" classname="utility.WeightMetricsTest" time="0.001"/>
-  <testcase name="testSubtractIs1KilogramForDifferenceOf500GramFromOneAndHalfKiloGram()" classname="utility.WeightMetricsTest" time="0.0"/>
-  <testcase name="testSubtractThrowsExceptionFor1GramAnd1Meter()" classname="utility.WeightMetricsTest" time="0.002"/>
-  <testcase name="testAddIs2KilogramFor1000GramAnd1000Gram()" classname="utility.WeightMetricsTest" time="0.0"/>
-  <testcase name="testSubtractIs2KilogramForDifferenceOf1000GramFrom3000Gram()" classname="utility.WeightMetricsTest" time="0.001"/>
+  <testcase name="testAddThrowsExceptionFor1GramAnd1Meter()" classname="utility.WeightMetricsTest" time="0.001"/>
+  <testcase name="testIsTrueFor100GramEqualsOneTenthOfKilogram()" classname="utility.WeightMetricsTest" time="0.002"/>
+  <testcase name="testSubtractIs1KilogramForDifferenceOf500GramFromOneAndHalfKiloGram()" classname="utility.WeightMetricsTest" time="0.003"/>
+  <testcase name="testSubtractThrowsExceptionFor1GramAnd1Meter()" classname="utility.WeightMetricsTest" time="0.006"/>
+  <testcase name="testAddIs2KilogramFor1000GramAnd1000Gram()" classname="utility.WeightMetricsTest" time="0.001"/>
+  <testcase name="testSubtractIs2KilogramForDifferenceOf1000GramFrom3000Gram()" classname="utility.WeightMetricsTest" time="0.006"/>
   <testcase name="testSubtractThrowsExceptionForDifferenceOfOneAndHalfKiloGramFrom500Gram()" classname="utility.WeightMetricsTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

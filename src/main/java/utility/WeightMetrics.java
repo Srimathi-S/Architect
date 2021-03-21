@@ -1,37 +1,34 @@
 package utility;
 
 public class WeightMetrics extends ScalarMetrics {
-    public enum UnitOfWeight implements Unit{
+    public enum UnitOfWeight implements Unit {
         Gram(1),
         Kilogram(1000);
 
-        private final double conversionRate;
+        private final double multiplicationFactor;
 
-        UnitOfWeight(double conversionRate) {
-            this.conversionRate = conversionRate;
-        }
-
-        public double getConversionRate() {
-            return conversionRate;
+        UnitOfWeight(double multiplicationFactor) {
+            this.multiplicationFactor = multiplicationFactor;
         }
 
         @Override
-        public Unit getStandardUnit() {
+        public double getMultiplicationFactor() {
+            return multiplicationFactor;
+        }
+
+        @Override
+        public Unit standardUnit() {
             return Gram;
         }
     }
-    private double dimension;
-    private UnitOfWeight unitOfWeight;
+
     public WeightMetrics(double dimension, UnitOfWeight unitOfWeight) throws InvalidMeasurementException {
-        super(dimension,unitOfWeight);
-        if (dimension <= 0) throw new InvalidMeasurementException();
-        this.dimension = dimension;
-        this.unitOfWeight = unitOfWeight;
+        super(dimension, unitOfWeight);
     }
 
     @Override
-    ScalarMetrics createMetric(double dimension, Unit unit) throws InvalidMeasurementException {
-        return new WeightMetrics(dimension,(UnitOfWeight) unit);
+    WeightMetrics createMetric(double dimension, Unit unit) throws InvalidMeasurementException {
+        return new WeightMetrics(dimension, (UnitOfWeight) unit);
     }
 
 }

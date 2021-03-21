@@ -11,8 +11,8 @@ public class TemperatureMetricsTest {
     public void testIsTrueFor0CelsiusEquals32Fahrenheit() {
         double temperatureInCelsius = 0;
         double temperatureInFahrenheit = 32;
-        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
-        TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInFahrenheit, Unit.UnitOfTemperature.Fahrenheit);
+        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, TemperatureMetrics.UnitOfTemperature.Celsius);
+        TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInFahrenheit, TemperatureMetrics.UnitOfTemperature.Fahrenheit);
 
         assertEquals(temperatureMetricsInCelsius, temperatureMetricsInFahrenheit);
     }
@@ -20,7 +20,7 @@ public class TemperatureMetricsTest {
     @Test
     public void testIsFalseForNonTemperatureMeasurementInstance() {
         double temperatureInCelsius = 1;
-        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
+        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, TemperatureMetrics.UnitOfTemperature.Celsius);
         Integer distance = 1;
 
         assertNotEquals(temperatureMetricsInCelsius, distance);
@@ -30,8 +30,8 @@ public class TemperatureMetricsTest {
     public void testIsFalseFor0KelvinEqualsNegative274Celsius() {
         double temperatureInCelsius = -274;
         double temperatureInKelvin = 0;
-        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
-        TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInKelvin, Unit.UnitOfTemperature.Kelvin);
+        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, TemperatureMetrics.UnitOfTemperature.Celsius);
+        TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInKelvin, TemperatureMetrics.UnitOfTemperature.Kelvin);
 
         assertNotEquals(temperatureMetricsInCelsius, temperatureMetricsInFahrenheit);
     }
@@ -40,8 +40,8 @@ public class TemperatureMetricsTest {
     public void testIsTrueFor0KelvinEqualsNegative273Celsius() {
         double temperatureInCelsius = -273.15;
         double temperatureInKelvin = 0;
-        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, Unit.UnitOfTemperature.Celsius);
-        TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInKelvin, Unit.UnitOfTemperature.Kelvin);
+        TemperatureMetrics temperatureMetricsInCelsius = new TemperatureMetrics(temperatureInCelsius, TemperatureMetrics.UnitOfTemperature.Celsius);
+        TemperatureMetrics temperatureMetricsInFahrenheit = new TemperatureMetrics(temperatureInKelvin, TemperatureMetrics.UnitOfTemperature.Kelvin);
 
         assertEquals(temperatureMetricsInCelsius, temperatureMetricsInFahrenheit);
     }

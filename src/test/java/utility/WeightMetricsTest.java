@@ -60,7 +60,7 @@ public class WeightMetricsTest {
         WeightMetrics secondWeightMetricsInGram = new WeightMetrics(dimensionInGram, WeightMetrics.UnitOfWeight.Gram);
         WeightMetrics expected = new WeightMetrics(2, WeightMetrics.UnitOfWeight.Kilogram);
 
-        ScalarMetrics actual =  firstWeightMetricsInGram.add(secondWeightMetricsInGram);
+        WeightMetrics actual = (WeightMetrics) firstWeightMetricsInGram.add(secondWeightMetricsInGram);
 
         assertEquals(expected, actual);
     }

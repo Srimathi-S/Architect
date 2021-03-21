@@ -1,11 +1,38 @@
 package utility;
 
 public class TemperatureMetrics {
+    public enum UnitOfTemperature implements Unit {
+        Fahrenheit(32, 0.56),
+        Celsius(0, 1),
+        Kelvin(273.15, 1);
+
+        private final double subtractionFactor;
+        private final double multiplicationFactor;
+
+        UnitOfTemperature(double subtractionFactor, double multiplicationFactor) {
+            this.subtractionFactor = subtractionFactor;
+            this.multiplicationFactor = multiplicationFactor;
+        }
+
+        public double getSubtractionFactor() {
+            return subtractionFactor;
+        }
+
+        @Override
+        public double getMultiplicationFactor() {
+            return multiplicationFactor;
+        }
+
+        @Override
+        public Unit standardUnit() {
+            return Celsius;
+        }
+    }
 
     private double temperature;
-    private Unit.UnitOfTemperature unitOfTemperature;
+    private UnitOfTemperature unitOfTemperature;
 
-    public TemperatureMetrics(double temperature, Unit.UnitOfTemperature unitOfTemperature) {
+    public TemperatureMetrics(double temperature, UnitOfTemperature unitOfTemperature) {
         this.temperature = temperature;
         this.unitOfTemperature = unitOfTemperature;
     }
@@ -19,11 +46,8 @@ public class TemperatureMetrics {
     }
 
     private TemperatureMetrics temperatureInCelsius() {
-        if (unitOfTemperature.getUnitType().equals("fahrenheit"))
-            return new TemperatureMetrics((temperature - 32) * (5 / 9), Unit.UnitOfTemperature.Celsius);
-        else if (unitOfTemperature.getUnitType().equals("kelvin"))
-            return new TemperatureMetrics((temperature - 273.15), Unit.UnitOfTemperature.Celsius);
-        return new TemperatureMetrics(temperature, Unit.UnitOfTemperature.Celsius);
+        return new TemperatureMetrics((temperature - unitOfTemperature.getSubtractionFactor()) *
+                unitOfTemperature.getMultiplicationFactor(), UnitOfTemperature.Celsius);
     }
 
 }

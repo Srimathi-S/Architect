@@ -119,8 +119,8 @@ public class DistanceMetricsTest {
     public void testAddIs2MeterFor1MeterAnd100Centimeter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100;
         double dimensionInMeter = 1;
-        ScalarMetrics<DistanceMetrics> distanceMetricsInCentimeter= new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
-        DistanceMetrics  distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
+        ScalarMetrics<DistanceMetrics> distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
         DistanceMetrics expected = new DistanceMetrics(2, DistanceMetrics.UnitOfDistance.Meter);
 
         DistanceMetrics actual = (DistanceMetrics) distanceMetricsInMeter.add(distanceMetricsInCentimeter);

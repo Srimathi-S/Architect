@@ -1,15 +1,17 @@
 package utility;
 
-abstract class ScalarMetrics< T extends ScalarMetrics> {
+abstract class ScalarMetrics<T extends ScalarMetrics> {
     double dimension;
-    private Unit unit;
-    public ScalarMetrics(double dimension, Unit unit) {
+    Unit unit;
+
+    public ScalarMetrics(double dimension, Unit unit) throws InvalidMeasurementException {
+        if (dimension <= 0) throw new InvalidMeasurementException();
         this.dimension = dimension;
-        this.unit=unit;
+        this.unit = unit;
     }
 
-    protected double convert(double conversionRate) {
-        return this.dimension*conversionRate;
+    protected double convertToStandardUnit() {
+        return dimension * unit.getMultiplicationFactor();
     }
 
     @Override
@@ -27,20 +29,22 @@ abstract class ScalarMetrics< T extends ScalarMetrics> {
     }
 
     private boolean isSameInstance(ScalarMetrics scalarMetrics) {
-        return unit.getStandardUnit()== scalarMetrics.unit.getStandardUnit();
+        return unit.standardUnit() == scalarMetrics.unit.standardUnit();
     }
 
     public T add(T metrics) throws InvalidMeasurementException {
-        if(!isSameInstance((ScalarMetrics) metrics))throw new IllegalArgumentException("Cannot add two different metrics");
-        double sum = this.dimensionInStandardUnit().dimension +metrics.dimensionInStandardUnit().dimension;
-        return createMetric(sum, unit.getStandardUnit());
+        if (!isSameInstance((ScalarMetrics) metrics))
+            throw new IllegalArgumentException("Cannot add two different metrics");
+        double sum = this.dimensionInStandardUnit().dimension + metrics.dimensionInStandardUnit().dimension;
+        return createMetric(sum, unit.standardUnit());
     }
 
     public T subtract(T metrics) {
-        if(!isSameInstance((ScalarMetrics) metrics))throw new IllegalArgumentException("Cannot add two different metrics");
+        if (!isSameInstance((ScalarMetrics) metrics))
+            throw new IllegalArgumentException("Cannot add two different metrics");
         try {
             double difference = dimensionInStandardUnit().dimension - metrics.dimensionInStandardUnit().dimension;
-            return createMetric(difference, unit.getStandardUnit());
+            return createMetric(difference, unit.standardUnit());
         } catch (InvalidMeasurementException e) {
             throw new IllegalArgumentException("Cannot Subtract larger dimension from smaller dimension");
         }
@@ -50,7 +54,7 @@ abstract class ScalarMetrics< T extends ScalarMetrics> {
     abstract T createMetric(double sum, Unit gram) throws InvalidMeasurementException;
 
     T dimensionInStandardUnit() throws InvalidMeasurementException {
-        return createMetric(convert(unit.getConversionRate()), unit.getStandardUnit());
+        return createMetric(convertToStandardUnit(), unit.standardUnit());
     }
 
 }
