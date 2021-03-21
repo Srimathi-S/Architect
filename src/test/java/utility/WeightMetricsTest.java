@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class WeightMetricsTest {
     @Test
-    public void testEqualsIsTrueFor1GramEquals1Gram() throws InvalidMeasurementException {
+    public void testIsTrueFor1GramEquals1Gram() throws InvalidMeasurementException {
         double dimension = 1;
-        WeightMetrics firstWeightMetrics = new WeightMetrics(dimension, Unit.UnitOfWeight.Gram);
-        WeightMetrics secondWeightMetrics = new WeightMetrics(dimension, Unit.UnitOfWeight.Gram);
+        WeightMetrics firstWeightMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics secondWeightMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
 
         boolean actual = firstWeightMetrics.equals(secondWeightMetrics);
 
@@ -17,11 +17,11 @@ public class WeightMetricsTest {
     }
 
     @Test
-    public void testEqualsIsTrueFor100GramEqualsOneTenthOfKilogram() throws InvalidMeasurementException {
+    public void testIsTrueFor100GramEqualsOneTenthOfKilogram() throws InvalidMeasurementException {
         double dimensionInGrams = 100;
         double dimensionInKilograms = 0.1;
-        WeightMetrics kilogramWeightMetrics = new WeightMetrics(dimensionInKilograms, Unit.UnitOfWeight.Kilogram);
-        WeightMetrics gramWeightMetrics = new WeightMetrics(dimensionInGrams, Unit.UnitOfWeight.Gram);
+        WeightMetrics kilogramWeightMetrics = new WeightMetrics(dimensionInKilograms, WeightMetrics.UnitOfWeight.Kilogram);
+        WeightMetrics gramWeightMetrics = new WeightMetrics(dimensionInGrams, WeightMetrics.UnitOfWeight.Gram);
 
         boolean actual = kilogramWeightMetrics.equals(gramWeightMetrics);
 
@@ -32,20 +32,20 @@ public class WeightMetricsTest {
     public void testThrowsExceptionForNegativeValuedDimension() {
         double dimension = -1;
 
-        assertThrows(InvalidMeasurementException.class, () -> new WeightMetrics(dimension, Unit.UnitOfWeight.Gram));
+        assertThrows(InvalidMeasurementException.class, () -> new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram));
     }
 
     @Test
     public void testThrowsExceptionForZeroValuedDimension() {
         double dimension = 0;
 
-        assertThrows(InvalidMeasurementException.class, () -> new WeightMetrics(dimension, Unit.UnitOfWeight.Gram));
+        assertThrows(InvalidMeasurementException.class, () -> new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram));
     }
 
     @Test
-    public void testEqualsIsFalseForNonWeightMetricsInstance() throws InvalidMeasurementException {
+    public void testIsFalseForNonWeightMetricsInstance() throws InvalidMeasurementException {
         double dimension = 1;
-        WeightMetrics firstDistanceMetrics = new WeightMetrics(dimension, Unit.UnitOfWeight.Gram);
+        WeightMetrics firstDistanceMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
         Integer distance = 1;
 
         boolean actual = firstDistanceMetrics.equals(distance);
@@ -56,11 +56,11 @@ public class WeightMetricsTest {
     @Test
     public void testAddIs2KilogramFor1000GramAnd1000Gram() throws InvalidMeasurementException {
         double dimensionInGram = 1000;
-        WeightMetrics firstWeightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);
-        WeightMetrics secondWeightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);
-        WeightMetrics expected = new WeightMetrics(2, Unit.UnitOfWeight.Kilogram);
+        WeightMetrics firstWeightMetricsInGram = new WeightMetrics(dimensionInGram, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics secondWeightMetricsInGram = new WeightMetrics(dimensionInGram, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics expected = new WeightMetrics(2, WeightMetrics.UnitOfWeight.Kilogram);
 
-        WeightMetrics actual = firstWeightMetricsInGram.add(secondWeightMetricsInGram);
+        ScalarMetrics actual =  firstWeightMetricsInGram.add(secondWeightMetricsInGram);
 
         assertEquals(expected, actual);
     }
@@ -69,11 +69,11 @@ public class WeightMetricsTest {
     public void testAddIs1010GramFor10GramAnd1Kilogram() throws InvalidMeasurementException {
         double dimensionInGram = 10;
         double dimensionInKilogram = 1;
-        WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);
-        WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, Unit.UnitOfWeight.Kilogram);
-        WeightMetrics expected = new WeightMetrics(1010, Unit.UnitOfWeight.Gram);
+        WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, WeightMetrics.UnitOfWeight.Kilogram);
+        WeightMetrics expected = new WeightMetrics(1010, WeightMetrics.UnitOfWeight.Gram);
 
-        WeightMetrics actual = weightMetricsInGram.add(weightMetricsInKilogram);
+        WeightMetrics actual = (WeightMetrics) weightMetricsInGram.add(weightMetricsInKilogram);
 
         assertEquals(expected, actual);
     }
@@ -82,11 +82,11 @@ public class WeightMetricsTest {
     public void testSubtractIs2KilogramForDifferenceOf1000GramFrom3000Gram() throws InvalidMeasurementException {
         double firstDimensionInGram = 3000;
         double secondDimensionInGram = 1000;
-        WeightMetrics firstWeightMetricsInGram = new WeightMetrics(firstDimensionInGram, Unit.UnitOfWeight.Gram);
-        WeightMetrics secondWeightMetricsInGram = new WeightMetrics(secondDimensionInGram, Unit.UnitOfWeight.Gram);
-        WeightMetrics expected = new WeightMetrics(2, Unit.UnitOfWeight.Kilogram);
+        WeightMetrics firstWeightMetricsInGram = new WeightMetrics(firstDimensionInGram, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics secondWeightMetricsInGram = new WeightMetrics(secondDimensionInGram, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics expected = new WeightMetrics(2, WeightMetrics.UnitOfWeight.Kilogram);
 
-        WeightMetrics actual = firstWeightMetricsInGram.subtract(secondWeightMetricsInGram);
+        WeightMetrics actual = (WeightMetrics) firstWeightMetricsInGram.subtract(secondWeightMetricsInGram);
 
         assertEquals(expected, actual);
     }
@@ -95,11 +95,11 @@ public class WeightMetricsTest {
     public void testSubtractIs1KilogramForDifferenceOf500GramFromOneAndHalfKiloGram() throws InvalidMeasurementException {
         double dimensionInGram = 500;
         double dimensionInKilogram = 1.5;
-        WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);
-        WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, Unit.UnitOfWeight.Kilogram);
-        WeightMetrics expected = new WeightMetrics(1, Unit.UnitOfWeight.Kilogram);
+        WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, WeightMetrics.UnitOfWeight.Kilogram);
+        WeightMetrics expected = new WeightMetrics(1, WeightMetrics.UnitOfWeight.Kilogram);
 
-        WeightMetrics actual = weightMetricsInKilogram.subtract(weightMetricsInGram);
+        WeightMetrics actual = (WeightMetrics) weightMetricsInKilogram.subtract(weightMetricsInGram);
 
         assertEquals(expected, actual);
     }
@@ -108,10 +108,39 @@ public class WeightMetricsTest {
     public void testSubtractThrowsExceptionForDifferenceOfOneAndHalfKiloGramFrom500Gram() throws InvalidMeasurementException {
         double dimensionInGram = 500;
         double dimensionInKilogram = 1.5;
-        WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, Unit.UnitOfWeight.Gram);
-        WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, Unit.UnitOfWeight.Kilogram);
-        WeightMetrics expected = new WeightMetrics(1, Unit.UnitOfWeight.Kilogram);
+        WeightMetrics weightMetricsInGram = new WeightMetrics(dimensionInGram, WeightMetrics.UnitOfWeight.Gram);
+        WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, WeightMetrics.UnitOfWeight.Kilogram);
+        WeightMetrics expected = new WeightMetrics(1, WeightMetrics.UnitOfWeight.Kilogram);
 
         assertThrows(IllegalArgumentException.class, () -> weightMetricsInGram.subtract(weightMetricsInKilogram));
+    }
+
+    @Test
+    public void testIsFalseFor1GramEquals1Meter() throws InvalidMeasurementException {
+        double dimension = 1;
+        WeightMetrics weightMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
+        DistanceMetrics distanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Meter);
+
+        boolean actual = weightMetrics.equals(distanceMetrics);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testAddThrowsExceptionFor1GramAnd1Meter() throws InvalidMeasurementException {
+        double dimension = 1;
+        WeightMetrics weightMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
+        DistanceMetrics distanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Meter);
+
+        assertThrows(IllegalArgumentException.class, () -> weightMetrics.add(distanceMetrics));
+    }
+
+    @Test
+    public void testSubtractThrowsExceptionFor1GramAnd1Meter() throws InvalidMeasurementException {
+        double dimension = 1;
+        WeightMetrics weightMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
+        DistanceMetrics distanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Meter);
+
+        assertThrows(IllegalArgumentException.class, () -> weightMetrics.subtract(distanceMetrics));
     }
 }

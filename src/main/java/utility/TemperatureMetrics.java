@@ -1,7 +1,5 @@
 package utility;
 
-import java.util.Objects;
-
 public class TemperatureMetrics {
 
     private double temperature;

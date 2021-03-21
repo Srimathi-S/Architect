@@ -1,13 +1,15 @@
 utility/InvalidMeasurementException.java
  utility.InvalidMeasurementException
-utility/DistanceMetrics.java
- utility.DistanceMetrics
-utility/TemperatureMetrics.java
- utility.TemperatureMetrics
 utility/Unit.java
  utility.Unit
- utility.Unit$UnitOfDistance
  utility.Unit$UnitOfTemperature
- utility.Unit$UnitOfWeight
+utility/Metrics.java
+ utility.Metrics
+utility/TemperatureMetrics.java
+ utility.TemperatureMetrics
+utility/DistanceMetrics.java
+ utility.DistanceMetrics
+ utility.DistanceMetrics$UnitOfDistance
 utility/WeightMetrics.java
  utility.WeightMetrics
+ utility.WeightMetrics$UnitOfWeight

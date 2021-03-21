@@ -2,15 +2,18 @@ package utility;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DistanceMetricsTest {
 
     @Test
-    public void testEqualsIsTrueFor1CentimeterEquals1Centimeter() throws InvalidMeasurementException {
+    public void testIsTrueFor1CentimeterEquals1Centimeter() throws InvalidMeasurementException {
         double dimension = 1;
-        DistanceMetrics firstDistanceMetrics = new DistanceMetrics(dimension, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics secondDistanceMetrics = new DistanceMetrics(dimension, Unit.UnitOfDistance.Centimeter);
+        DistanceMetrics firstDistanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics secondDistanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Centimeter);
 
         boolean actual = firstDistanceMetrics.equals(secondDistanceMetrics);
 
@@ -18,11 +21,11 @@ public class DistanceMetricsTest {
     }
 
     @Test
-    public void testEqualsIsFalseFor2CentimeterEquals1Centimeter() throws InvalidMeasurementException {
+    public void testIsFalseFor2CentimeterEquals1Centimeter() throws InvalidMeasurementException {
         double firstDimension = 2;
         double secondDimension = 1;
-        DistanceMetrics firstDistanceMetrics = new DistanceMetrics(firstDimension, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics secondDistanceMetrics = new DistanceMetrics(secondDimension, Unit.UnitOfDistance.Centimeter);
+        DistanceMetrics firstDistanceMetrics = new DistanceMetrics(firstDimension, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics secondDistanceMetrics = new DistanceMetrics(secondDimension, DistanceMetrics.UnitOfDistance.Centimeter);
 
         boolean actual = firstDistanceMetrics.equals(secondDistanceMetrics);
 
@@ -30,9 +33,9 @@ public class DistanceMetricsTest {
     }
 
     @Test
-    public void testEqualsIsFalseForNonMeasurementInstance() throws InvalidMeasurementException {
+    public void testIsFalseForNonMeasurementInstance() throws InvalidMeasurementException {
         double dimension = 1;
-        DistanceMetrics firstDistanceMetrics = new DistanceMetrics(dimension, Unit.UnitOfDistance.Centimeter);
+        DistanceMetrics firstDistanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Centimeter);
         Integer distance = 1;
 
         boolean actual = firstDistanceMetrics.equals(distance);
@@ -41,9 +44,9 @@ public class DistanceMetricsTest {
     }
 
     @Test
-    public void testEqualsIsTrueForSameMeasurementInstance() throws InvalidMeasurementException {
+    public void testIsTrueForSameMeasurementInstance() throws InvalidMeasurementException {
         double dimension = 1;
-        DistanceMetrics distanceMetrics = new DistanceMetrics(dimension, Unit.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Centimeter);
 
         boolean actual = distanceMetrics.equals(distanceMetrics);
 
@@ -54,22 +57,22 @@ public class DistanceMetricsTest {
     public void testThrowsExceptionForNegativeValuedDimension() {
         double dimension = -1;
 
-        assertThrows(InvalidMeasurementException.class, () -> new DistanceMetrics(dimension, Unit.UnitOfDistance.Centimeter));
+        assertThrows(InvalidMeasurementException.class, () -> new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Centimeter));
     }
 
     @Test
     public void testThrowsExceptionForZeroValuedDimension() {
         double dimension = 0;
 
-        assertThrows(InvalidMeasurementException.class, () -> new DistanceMetrics(dimension, Unit.UnitOfDistance.Centimeter));
+        assertThrows(InvalidMeasurementException.class, () -> new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Centimeter));
     }
 
     @Test
-    public void testEqualsIsTrueFor1MeterEquals100Centimeter() throws InvalidMeasurementException {
+    public void testIsTrueFor1MeterEquals100Centimeter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100;
         double dimensionInMeter = 1;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
 
         boolean actual = distanceMetricsInCentimeter.equals(distanceMetricsInMeter);
 
@@ -77,11 +80,11 @@ public class DistanceMetricsTest {
     }
 
     @Test
-    public void testEqualsIsTrueFor100CentimeterEquals1Meter() throws InvalidMeasurementException {
+    public void testIsTrueFor100CentimeterEquals1Meter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100;
         double dimensionInMeter = 1;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
 
         boolean actual = distanceMetricsInMeter.equals(distanceMetricsInCentimeter);
 
@@ -89,11 +92,11 @@ public class DistanceMetricsTest {
     }
 
     @Test
-    public void testEqualsIsTrueFor100CentimeterEqualsOneThousandthKilometer() throws InvalidMeasurementException {
+    public void testIsTrueFor100CentimeterEqualsOneThousandthKilometer() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100;
         double dimensionInKilometer = 0.001;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInKilometer = new DistanceMetrics(dimensionInKilometer, Unit.UnitOfDistance.Kilometer);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInKilometer = new DistanceMetrics(dimensionInKilometer, DistanceMetrics.UnitOfDistance.Kilometer);
 
         boolean actual = distanceMetricsInCentimeter.equals(distanceMetricsInKilometer);
 
@@ -101,11 +104,11 @@ public class DistanceMetricsTest {
     }
 
     @Test
-    public void testEqualsIsTrueForOneThousandthKilometerEquals100Centimeter() throws InvalidMeasurementException {
+    public void testIsTrueForOneThousandthKilometerEquals100Centimeter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100;
         double dimensionInKilometer = 0.001;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInKilometer = new DistanceMetrics(dimensionInKilometer, Unit.UnitOfDistance.Kilometer);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInKilometer = new DistanceMetrics(dimensionInKilometer, DistanceMetrics.UnitOfDistance.Kilometer);
 
         boolean actual = distanceMetricsInKilometer.equals(distanceMetricsInCentimeter);
 
@@ -116,11 +119,11 @@ public class DistanceMetricsTest {
     public void testAddIs2MeterFor1MeterAnd100Centimeter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100;
         double dimensionInMeter = 1;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
-        DistanceMetrics expected = new DistanceMetrics(2, Unit.UnitOfDistance.Meter);
+        ScalarMetrics<DistanceMetrics> distanceMetricsInCentimeter= new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics  distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
+        DistanceMetrics expected = new DistanceMetrics(2, DistanceMetrics.UnitOfDistance.Meter);
 
-        DistanceMetrics actual = distanceMetricsInMeter.add(distanceMetricsInCentimeter);
+        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInMeter.add(distanceMetricsInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -129,11 +132,11 @@ public class DistanceMetricsTest {
     public void testAddIs100200CentimeterFor200CentimeterAnd1Kilometer() throws InvalidMeasurementException {
         double dimensionInCentimeter = 200;
         double dimensionInKilometer = 1;
-        DistanceMetrics measurementInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics measurementInKilometer = new DistanceMetrics(dimensionInKilometer, Unit.UnitOfDistance.Kilometer);
-        DistanceMetrics expected = new DistanceMetrics(100200, Unit.UnitOfDistance.Centimeter);
+        DistanceMetrics measurementInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics measurementInKilometer = new DistanceMetrics(dimensionInKilometer, DistanceMetrics.UnitOfDistance.Kilometer);
+        DistanceMetrics expected = new DistanceMetrics(100200, DistanceMetrics.UnitOfDistance.Centimeter);
 
-        DistanceMetrics actual = measurementInKilometer.add(measurementInCentimeter);
+        DistanceMetrics actual = (DistanceMetrics) measurementInKilometer.add(measurementInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -142,11 +145,11 @@ public class DistanceMetricsTest {
     public void testAddIs2KilometerFor100000CentimeterAnd1000Meter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100000;
         double dimensionInMeter = 1000;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
-        DistanceMetrics expected = new DistanceMetrics(2, Unit.UnitOfDistance.Kilometer);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
+        DistanceMetrics expected = new DistanceMetrics(2, DistanceMetrics.UnitOfDistance.Kilometer);
 
-        DistanceMetrics actual = distanceMetricsInMeter.add(distanceMetricsInCentimeter);
+        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInMeter.add(distanceMetricsInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -155,11 +158,11 @@ public class DistanceMetricsTest {
     public void testSubtractIsHalfMeterForRemoving50CentimeterFrom1Meter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 50;
         double dimensionInMeter = 1;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
-        DistanceMetrics expected = new DistanceMetrics(0.5, Unit.UnitOfDistance.Meter);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
+        DistanceMetrics expected = new DistanceMetrics(0.5, DistanceMetrics.UnitOfDistance.Meter);
 
-        DistanceMetrics actual = distanceMetricsInMeter.subtract(distanceMetricsInCentimeter);
+        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInMeter.subtract(distanceMetricsInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -168,11 +171,11 @@ public class DistanceMetricsTest {
     public void testSubtractIs1900CentimeterForRemoving1MeterFrom2000Centimeter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 2000;
         double dimensionInMeter = 1;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
-        DistanceMetrics expected = new DistanceMetrics(1900, Unit.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
+        DistanceMetrics expected = new DistanceMetrics(1900, DistanceMetrics.UnitOfDistance.Centimeter);
 
-        DistanceMetrics actual = distanceMetricsInCentimeter.subtract(distanceMetricsInMeter);
+        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInCentimeter.subtract(distanceMetricsInMeter);
 
         assertEquals(expected, actual);
     }
@@ -181,8 +184,8 @@ public class DistanceMetricsTest {
     public void testSubtractThrowsExceptionForRemoving1MeterFrom50Centimeter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 50;
         double dimensionInMeter = 1;
-        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, Unit.UnitOfDistance.Centimeter);
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
 
         assertThrows(IllegalArgumentException.class, () -> distanceMetricsInCentimeter.subtract(distanceMetricsInMeter));
     }
@@ -190,7 +193,7 @@ public class DistanceMetricsTest {
     @Test
     public void testSubtractThrowsExceptionForRemoving1MeterFrom1Meter() throws InvalidMeasurementException {
         double dimensionInMeter = 1;
-        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, Unit.UnitOfDistance.Meter);
+        DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
 
         assertThrows(IllegalArgumentException.class, () -> distanceMetricsInMeter.subtract(distanceMetricsInMeter));
     }
