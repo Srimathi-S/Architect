@@ -5,6 +5,8 @@ utility/Unit.java
 utility/DistanceMetrics.java
  utility.DistanceMetrics
  utility.DistanceMetrics$UnitOfDistance
+utility/Metrics.java
+ utility.Metrics
 utility/TemperatureMetrics.java
  utility.TemperatureMetrics
  utility.TemperatureMetrics$UnitOfTemperature

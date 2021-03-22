@@ -119,11 +119,11 @@ public class DistanceMetricsTest {
     public void testAddIs2MeterFor1MeterAnd100Centimeter() throws InvalidMeasurementException {
         double dimensionInCentimeter = 100;
         double dimensionInMeter = 1;
-        ScalarMetrics<DistanceMetrics> distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
+        DistanceMetrics distanceMetricsInCentimeter = new DistanceMetrics(dimensionInCentimeter, DistanceMetrics.UnitOfDistance.Centimeter);
         DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
         DistanceMetrics expected = new DistanceMetrics(2, DistanceMetrics.UnitOfDistance.Meter);
 
-        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInMeter.add(distanceMetricsInCentimeter);
+        DistanceMetrics actual =  distanceMetricsInMeter.add(distanceMetricsInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -136,7 +136,7 @@ public class DistanceMetricsTest {
         DistanceMetrics measurementInKilometer = new DistanceMetrics(dimensionInKilometer, DistanceMetrics.UnitOfDistance.Kilometer);
         DistanceMetrics expected = new DistanceMetrics(100200, DistanceMetrics.UnitOfDistance.Centimeter);
 
-        DistanceMetrics actual = (DistanceMetrics) measurementInKilometer.add(measurementInCentimeter);
+        DistanceMetrics actual =  measurementInKilometer.add(measurementInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -149,7 +149,7 @@ public class DistanceMetricsTest {
         DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
         DistanceMetrics expected = new DistanceMetrics(2, DistanceMetrics.UnitOfDistance.Kilometer);
 
-        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInMeter.add(distanceMetricsInCentimeter);
+        DistanceMetrics actual =  distanceMetricsInMeter.add(distanceMetricsInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -162,7 +162,7 @@ public class DistanceMetricsTest {
         DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
         DistanceMetrics expected = new DistanceMetrics(0.5, DistanceMetrics.UnitOfDistance.Meter);
 
-        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInMeter.subtract(distanceMetricsInCentimeter);
+        DistanceMetrics actual =distanceMetricsInMeter.subtract(distanceMetricsInCentimeter);
 
         assertEquals(expected, actual);
     }
@@ -175,7 +175,7 @@ public class DistanceMetricsTest {
         DistanceMetrics distanceMetricsInMeter = new DistanceMetrics(dimensionInMeter, DistanceMetrics.UnitOfDistance.Meter);
         DistanceMetrics expected = new DistanceMetrics(1900, DistanceMetrics.UnitOfDistance.Centimeter);
 
-        DistanceMetrics actual = (DistanceMetrics) distanceMetricsInCentimeter.subtract(distanceMetricsInMeter);
+        DistanceMetrics actual =  distanceMetricsInCentimeter.subtract(distanceMetricsInMeter);
 
         assertEquals(expected, actual);
     }

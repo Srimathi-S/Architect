@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="utility.DistanceMetricsTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2021-03-21T12:20:05" hostname="LAPTOP-538TC8K1" time="0.272">
+<testsuite name="utility.DistanceMetricsTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2021-03-22T15:05:10" hostname="LAPTOP-538TC8K1" time="0.082">
   <properties/>
-  <testcase name="testIsTrueFor100CentimeterEqualsOneThousandthKilometer()" classname="utility.DistanceMetricsTest" time="0.174"/>
-  <testcase name="testThrowsExceptionForZeroValuedDimension()" classname="utility.DistanceMetricsTest" time="0.019"/>
-  <testcase name="testIsFalseForNonMeasurementInstance()" classname="utility.DistanceMetricsTest" time="0.004"/>
-  <testcase name="testIsTrueFor100CentimeterEquals1Meter()" classname="utility.DistanceMetricsTest" time="0.001"/>
-  <testcase name="testSubtractIsHalfMeterForRemoving50CentimeterFrom1Meter()" classname="utility.DistanceMetricsTest" time="0.004"/>
+  <testcase name="testIsTrueFor100CentimeterEqualsOneThousandthKilometer()" classname="utility.DistanceMetricsTest" time="0.004"/>
+  <testcase name="testThrowsExceptionForZeroValuedDimension()" classname="utility.DistanceMetricsTest" time="0.017"/>
+  <testcase name="testIsFalseForNonMeasurementInstance()" classname="utility.DistanceMetricsTest" time="0.002"/>
+  <testcase name="testIsTrueFor100CentimeterEquals1Meter()" classname="utility.DistanceMetricsTest" time="0.003"/>
+  <testcase name="testSubtractIsHalfMeterForRemoving50CentimeterFrom1Meter()" classname="utility.DistanceMetricsTest" time="0.001"/>
   <testcase name="testAddIs2KilometerFor100000CentimeterAnd1000Meter()" classname="utility.DistanceMetricsTest" time="0.001"/>
   <testcase name="testIsTrueFor1MeterEquals100Centimeter()" classname="utility.DistanceMetricsTest" time="0.001"/>
-  <testcase name="testSubtractThrowsExceptionForRemoving1MeterFrom50Centimeter()" classname="utility.DistanceMetricsTest" time="0.003"/>
+  <testcase name="testSubtractThrowsExceptionForRemoving1MeterFrom50Centimeter()" classname="utility.DistanceMetricsTest" time="0.001"/>
   <testcase name="testThrowsExceptionForNegativeValuedDimension()" classname="utility.DistanceMetricsTest" time="0.002"/>
-  <testcase name="testAddIs2MeterFor1MeterAnd100Centimeter()" classname="utility.DistanceMetricsTest" time="0.008"/>
-  <testcase name="testIsFalseFor2CentimeterEquals1Centimeter()" classname="utility.DistanceMetricsTest" time="0.004"/>
-  <testcase name="testSubtractIs1900CentimeterForRemoving1MeterFrom2000Centimeter()" classname="utility.DistanceMetricsTest" time="0.003"/>
-  <testcase name="testIsTrueFor1CentimeterEquals1Centimeter()" classname="utility.DistanceMetricsTest" time="0.007"/>
-  <testcase name="testIsTrueForOneThousandthKilometerEquals100Centimeter()" classname="utility.DistanceMetricsTest" time="0.002"/>
-  <testcase name="testAddIs100200CentimeterFor200CentimeterAnd1Kilometer()" classname="utility.DistanceMetricsTest" time="0.003"/>
+  <testcase name="testAddIs2MeterFor1MeterAnd100Centimeter()" classname="utility.DistanceMetricsTest" time="0.001"/>
+  <testcase name="testIsFalseFor2CentimeterEquals1Centimeter()" classname="utility.DistanceMetricsTest" time="0.001"/>
+  <testcase name="testSubtractIs1900CentimeterForRemoving1MeterFrom2000Centimeter()" classname="utility.DistanceMetricsTest" time="0.001"/>
+  <testcase name="testIsTrueFor1CentimeterEquals1Centimeter()" classname="utility.DistanceMetricsTest" time="0.003"/>
+  <testcase name="testIsTrueForOneThousandthKilometerEquals100Centimeter()" classname="utility.DistanceMetricsTest" time="0.004"/>
+  <testcase name="testAddIs100200CentimeterFor200CentimeterAnd1Kilometer()" classname="utility.DistanceMetricsTest" time="0.002"/>
   <testcase name="testSubtractThrowsExceptionForRemoving1MeterFrom1Meter()" classname="utility.DistanceMetricsTest" time="0.002"/>
-  <testcase name="testIsTrueForSameMeasurementInstance()" classname="utility.DistanceMetricsTest" time="0.001"/>
+  <testcase name="testIsTrueForSameMeasurementInstance()" classname="utility.DistanceMetricsTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

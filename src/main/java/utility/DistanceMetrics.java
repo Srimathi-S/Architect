@@ -1,15 +1,17 @@
 package utility;
 
-public class DistanceMetrics extends ScalarMetrics {
+public class DistanceMetrics extends ScalarMetrics<DistanceMetrics> {
     public enum UnitOfDistance implements Unit {
-        Centimeter(0.01),
-        Meter(1),
-        Kilometer(1000);
+        Centimeter(0, 0.01),
+        Meter(0, 1),
+        Kilometer(0, 1000);
 
+        private final double subtractionFactor;
         private final double multiplicationFactor;
 
-        UnitOfDistance(double multiplicationFactor) {
+        UnitOfDistance(double subtractionFactor, double multiplicationFactor) {
             this.multiplicationFactor = multiplicationFactor;
+            this.subtractionFactor = subtractionFactor;
         }
 
         @Override
@@ -20,6 +22,11 @@ public class DistanceMetrics extends ScalarMetrics {
         @Override
         public Unit standardUnit() {
             return Meter;
+        }
+
+        @Override
+        public double getSubtractionFactor() {
+            return subtractionFactor;
         }
     }
 

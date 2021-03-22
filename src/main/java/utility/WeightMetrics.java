@@ -1,14 +1,16 @@
 package utility;
 
-public class WeightMetrics extends ScalarMetrics {
+public class WeightMetrics extends ScalarMetrics <WeightMetrics>{
     public enum UnitOfWeight implements Unit {
-        Gram(1),
-        Kilogram(1000);
+        Gram(0,1),
+        Kilogram(0,1000);
 
+        private final double subtractionFactor;
         private final double multiplicationFactor;
 
-        UnitOfWeight(double multiplicationFactor) {
+        UnitOfWeight(double subtractionFactor, double multiplicationFactor) {
             this.multiplicationFactor = multiplicationFactor;
+            this.subtractionFactor = subtractionFactor;
         }
 
         @Override
@@ -19,6 +21,11 @@ public class WeightMetrics extends ScalarMetrics {
         @Override
         public Unit standardUnit() {
             return Gram;
+        }
+
+        @Override
+        public double getSubtractionFactor() {
+            return subtractionFactor;
         }
     }
 

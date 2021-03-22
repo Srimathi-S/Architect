@@ -60,7 +60,7 @@ public class WeightMetricsTest {
         WeightMetrics secondWeightMetricsInGram = new WeightMetrics(dimensionInGram, WeightMetrics.UnitOfWeight.Gram);
         WeightMetrics expected = new WeightMetrics(2, WeightMetrics.UnitOfWeight.Kilogram);
 
-        WeightMetrics actual = (WeightMetrics) firstWeightMetricsInGram.add(secondWeightMetricsInGram);
+        WeightMetrics actual =  firstWeightMetricsInGram.add(secondWeightMetricsInGram);
 
         assertEquals(expected, actual);
     }
@@ -73,7 +73,7 @@ public class WeightMetricsTest {
         WeightMetrics weightMetricsInKilogram = new WeightMetrics(dimensionInKilogram, WeightMetrics.UnitOfWeight.Kilogram);
         WeightMetrics expected = new WeightMetrics(1010, WeightMetrics.UnitOfWeight.Gram);
 
-        WeightMetrics actual = (WeightMetrics) weightMetricsInGram.add(weightMetricsInKilogram);
+        WeightMetrics actual = weightMetricsInGram.add(weightMetricsInKilogram);
 
         assertEquals(expected, actual);
     }
@@ -86,7 +86,7 @@ public class WeightMetricsTest {
         WeightMetrics secondWeightMetricsInGram = new WeightMetrics(secondDimensionInGram, WeightMetrics.UnitOfWeight.Gram);
         WeightMetrics expected = new WeightMetrics(2, WeightMetrics.UnitOfWeight.Kilogram);
 
-        WeightMetrics actual = (WeightMetrics) firstWeightMetricsInGram.subtract(secondWeightMetricsInGram);
+        WeightMetrics actual =  firstWeightMetricsInGram.subtract(secondWeightMetricsInGram);
 
         assertEquals(expected, actual);
     }
@@ -124,23 +124,5 @@ public class WeightMetricsTest {
         boolean actual = weightMetrics.equals(distanceMetrics);
 
         assertFalse(actual);
-    }
-
-    @Test
-    public void testAddThrowsExceptionFor1GramAnd1Meter() throws InvalidMeasurementException {
-        double dimension = 1;
-        WeightMetrics weightMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
-        DistanceMetrics distanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Meter);
-
-        assertThrows(IllegalArgumentException.class, () -> weightMetrics.add(distanceMetrics));
-    }
-
-    @Test
-    public void testSubtractThrowsExceptionFor1GramAnd1Meter() throws InvalidMeasurementException {
-        double dimension = 1;
-        WeightMetrics weightMetrics = new WeightMetrics(dimension, WeightMetrics.UnitOfWeight.Gram);
-        DistanceMetrics distanceMetrics = new DistanceMetrics(dimension, DistanceMetrics.UnitOfDistance.Meter);
-
-        assertThrows(IllegalArgumentException.class, () -> weightMetrics.subtract(distanceMetrics));
     }
 }

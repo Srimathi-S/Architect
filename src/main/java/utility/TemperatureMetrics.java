@@ -1,6 +1,7 @@
 package utility;
 
-public class TemperatureMetrics {
+public class TemperatureMetrics extends Metrics<TemperatureMetrics>{
+
     public enum UnitOfTemperature implements Unit {
         Fahrenheit(32, 0.56),
         Celsius(0, 1),
@@ -14,6 +15,7 @@ public class TemperatureMetrics {
             this.multiplicationFactor = multiplicationFactor;
         }
 
+        @Override
         public double getSubtractionFactor() {
             return subtractionFactor;
         }
@@ -29,25 +31,13 @@ public class TemperatureMetrics {
         }
     }
 
-    private double temperature;
-    private UnitOfTemperature unitOfTemperature;
-
-    public TemperatureMetrics(double temperature, UnitOfTemperature unitOfTemperature) {
-        this.temperature = temperature;
-        this.unitOfTemperature = unitOfTemperature;
+    public TemperatureMetrics(double dimension, UnitOfTemperature unitOfTemperature) {
+        super(dimension,unitOfTemperature);
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (!(object instanceof TemperatureMetrics)) return false;
-        TemperatureMetrics temperatureMetrics = (TemperatureMetrics) object;
-        return temperatureInCelsius().temperature == temperatureMetrics.temperatureInCelsius().temperature;
-    }
-
-    private TemperatureMetrics temperatureInCelsius() {
-        return new TemperatureMetrics((temperature - unitOfTemperature.getSubtractionFactor()) *
-                unitOfTemperature.getMultiplicationFactor(), UnitOfTemperature.Celsius);
+    TemperatureMetrics createMetric(double dimension, Unit unit) throws InvalidMeasurementException {
+        return new TemperatureMetrics(dimension,(UnitOfTemperature)unit);
     }
 
 }
