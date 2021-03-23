@@ -1,8 +1,18 @@
 package utility;
 
-public abstract class Metrics <T extends Metrics>{
+import java.util.Objects;
+
+public class Metrics <T extends Metrics>{
     double dimension;
     Unit unit;
+
+    public interface Unit {
+        double getMultiplicationFactor();
+
+        Unit standardUnit();
+
+        double getSubtractionFactor();
+    }
 
     public Metrics(double dimension ,Unit unit) {
         this.dimension=dimension;
@@ -13,21 +23,20 @@ public abstract class Metrics <T extends Metrics>{
         return (dimension-unit.getSubtractionFactor()) * unit.getMultiplicationFactor();
     }
 
-    T dimensionInStandardUnit() throws InvalidMeasurementException {
-        return createMetric(convertToStandardUnit(), unit.standardUnit());
-    }
-
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
-        if (!(object.getClass()==this.getClass())) return false;
+        if (object.getClass()!=this.getClass()) return false;
         T metrics = (T) object;
-        try {
-            return dimensionInStandardUnit().dimension== metrics.dimensionInStandardUnit().dimension;
-        } catch (InvalidMeasurementException e) {
-            return false;
-        }
+        return convertToStandardUnit()== metrics.convertToStandardUnit();
     }
 
-    abstract T createMetric(double dimension, Unit unit) throws InvalidMeasurementException;
+    @Override
+    public int hashCode() {
+        return Objects.hash(dimension, unit);
+    }
+
+
+
+
 }

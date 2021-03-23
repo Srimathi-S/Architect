@@ -12,15 +12,16 @@ abstract class ScalarMetrics <T extends ScalarMetrics> extends Metrics<ScalarMet
         return dimension;
     }
 
+    abstract T createMetric(double dimension, Unit unit) throws InvalidMeasurementException;
 
     public T add(T metrics) throws InvalidMeasurementException {
-        double sum = this.dimensionInStandardUnit().dimension + metrics.dimensionInStandardUnit().dimension;
+        double sum = convertToStandardUnit()+metrics.convertToStandardUnit();
         return  (T)createMetric(sum, unit.standardUnit());
     }
 
     public T subtract(T metrics) {
         try {
-            double difference = dimensionInStandardUnit().dimension - metrics.dimensionInStandardUnit().dimension;
+            double difference = convertToStandardUnit()-metrics.convertToStandardUnit();;
             return (T) createMetric(difference, unit.standardUnit());
         } catch (InvalidMeasurementException e) {
             throw new IllegalArgumentException("Cannot Subtract larger dimension from smaller dimension");

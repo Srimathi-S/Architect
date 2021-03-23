@@ -35,9 +35,4 @@ public class TemperatureMetrics extends Metrics<TemperatureMetrics>{
         super(dimension,unitOfTemperature);
     }
 
-    @Override
-    TemperatureMetrics createMetric(double dimension, Unit unit) throws InvalidMeasurementException {
-        return new TemperatureMetrics(dimension,(UnitOfTemperature)unit);
-    }
-
 }
